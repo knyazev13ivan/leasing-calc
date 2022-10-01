@@ -1,0 +1,29 @@
+@import "../variables.scss";
+
+@mixin media-mobile {
+
+  @media (max-width: $mediaWidthMobile) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+
+  @media (max-width: $mediaWidthTablet) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+
+  @media (max-width: $mediaWidthDesktop) {
+    @content;
+  }
+}
+
+@mixin media-large {
+
+  @media (max-width: $mediaWidthLarge) {
+    @content;
+  }
+}

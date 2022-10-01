@@ -1,0 +1,38 @@
+@import "../mixins/media.scss";
+@import "../variables.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  width: 100%;
+  font-family: "Century Gothic", sans-serif;
+  background-color: #ffffff;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
