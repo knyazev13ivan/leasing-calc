@@ -2,12 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface ICalcState {
-  carCost: number;
-  initialDeposit: number;
-  months: number;
-  dealSum: number;
-  monthlyPayment: number;
-  percentDeposit: number;
+  [key: string]: number;
 }
 
 export interface IConfig {
@@ -51,12 +46,15 @@ const initialState: ICalcState = {
   set carCost(value) {
     if (value < config.carCost.min) this.carCost = config.carCost.min;
     if (value > config.carCost.max) this.carCost = config.carCost.max;
+    if (value > config.carCost.min && value < config.carCost.max) {
+      this.carCost = +value;
+    }
   },
   get carCost() {
     return this.carCost || 3300000;
   },
   set initialDeposit(value) {
-    this.initialDeposit = this.percentDeposit * this.carCost;
+    this.initialDeposit = (this.percentDeposit / 100) * this.carCost;
   },
   get initialDeposit() {
     return this.initialDeposit || 420000;
@@ -64,13 +62,24 @@ const initialState: ICalcState = {
   set months(value) {
     if (value < config.months.min) this.months = config.months.min;
     if (value > config.months.max) this.months = config.months.max;
+    if (value > config.months.min && value < config.months.max) {
+      this.months = +value;
+    }
   },
   get months() {
     return this.months || 60;
   },
   set percentDeposit(value) {
-    if (value < config.percentDeposit.min) this.percentDeposit = config.percentDeposit.min;
-    if (value > config.percentDeposit.max) this.percentDeposit = config.percentDeposit.max;
+    if (value / 100 < config.percentDeposit.min)
+      this.percentDeposit = config.percentDeposit.min;
+    if (value / 100 > config.percentDeposit.max)
+      this.percentDeposit = config.percentDeposit.max;
+    if (
+      value > config.percentDeposit.min &&
+      value < config.percentDeposit.max
+    ) {
+      this.percentDeposit = +value / 100;
+    }
   },
   get percentDeposit() {
     return this.percentDeposit || 0.1;
@@ -90,7 +99,8 @@ const slice = createSlice({
       state[name] = +value;
 
       if (name === "initialDeposit") {
-        state.percentDeposit = Math.round(state.initialDeposit / state.carCost * 100) / 100;
+        state.percentDeposit =
+          Math.round((state.initialDeposit / state.carCost) * 100) / 100;
       }
       if (name === "percentDeposit") {
         state.initialDeposit = Math.round(state.percentDeposit * state.carCost);

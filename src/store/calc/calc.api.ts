@@ -3,7 +3,7 @@ import { ICalcState } from "./calc.slice";
 
 export const calcApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    signIn: build.mutation<ICalcState, ICalcState>({
+    submitLeasingForm: build.mutation<ICalcState, ICalcState>({
       query: (params) => ({
         url: "/",
         method: "POST",
@@ -14,4 +14,4 @@ export const calcApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useSignInMutation } = calcApi;
+export const { useSubmitLeasingFormMutation } = calcApi;

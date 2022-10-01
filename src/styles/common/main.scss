@@ -1,15 +1,5 @@
-@import "../../mixins/media.scss";
-@import "./pages/auth/login.scss";
-@import "./pages/contacts/contacts-page.scss";
-@import "./pages/moduls/create-contact.scss";
+@import "../mixins/media.scss";
 
 .main {
-  padding: 70px 20px 73px;
-  max-width: 1170px;
   margin: 0 auto;
-
-  @include media-desktop {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
