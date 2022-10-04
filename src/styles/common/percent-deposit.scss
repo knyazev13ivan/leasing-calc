@@ -1,0 +1,29 @@
+@import "../variables.scss";
+
+.percent-deposit {
+
+  &__input {
+    width: 70px;
+    height: 50px;
+    margin-top: -10px;
+    margin-right: -20px;
+    padding: 15px;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    background: rgba(224, 224, 224, 0.4);
+    color: $grey-color;
+    text-align: right;
+    font-family: "Nekst", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+
+    &:focus {
+      background-color: $bg-color;
+    }
+
+    @include media-tablet {
+      margin-right: -14px;  
+    }
+  }
+}

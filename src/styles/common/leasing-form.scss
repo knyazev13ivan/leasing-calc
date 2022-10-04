@@ -1,0 +1,83 @@
+@import "../variables.scss";
+@import "./input-field.scss";
+@import "./info-field.scss";
+@import "./percent-deposit.scss";
+@import "./submit-button.scss";
+
+.leasing-form {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+
+  @include media-mobile {
+    padding: 44px 20px;
+  }
+
+  @include media-tablet {
+    padding: 64px 36px;
+  }
+
+  @include media-desktop {
+    padding: 64px 48px;
+  }
+
+  @include media-large {
+    padding: 20px 48px;
+  }
+
+  &__caption {
+    max-width: 740px;
+    font-family: "Nekst", sans-serif;
+    color: $black-color;
+
+    @include media-mobile {
+      margin-bottom: 8px;
+      font-size: 34px;
+      line-height: 30px;
+    }
+
+    @include media-tablet {
+      margin-bottom: 12px;
+      font-size: 54px;
+      line-height: 48px;
+    }
+
+    @include media-large {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0px;
+
+    @include media-large {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+
+    @include media-mobile {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    @include media-tablet {
+      flex-direction: row;
+      align-items: center;
+      padding-top: 5px;
+    }
+
+    @include media-large {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding-top: 12px;
+    }
+  }
+}

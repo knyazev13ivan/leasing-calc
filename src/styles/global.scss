@@ -1,5 +1,6 @@
-@import "../mixins/media.scss";
-@import "../variables.scss";
+@import "mixins/media.scss";
+@import "./variables.scss";
+@import "./fonts.scss";
 
 *,
 *::before,
@@ -9,15 +10,23 @@
 
 html {
   box-sizing: border-box;
+  
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 body {
   min-width: 320px;
-  width: 100%;
-  font-family: "Century Gothic", sans-serif;
+  width: 100vw;
+  font-family: "Gilroy", sans-serif;
   background-color: #ffffff;
   color: $text-color;
   background-color: $bg-color;
+  margin: 0;
+  padding: 0;
 }
 
 h1,

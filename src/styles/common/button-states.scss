@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+.button {
+  &:hover {
+    background-color: $black-grey-color;
+  }
+
+  &:active {
+    background-color: $grey-color;
+  }
+
+  &:disabled {
+    background-color: rgba(255, 149, 20, 0.4);;
+  }
+}

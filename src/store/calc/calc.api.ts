@@ -3,11 +3,14 @@ import { ICalcState } from "./calc.slice";
 
 export const calcApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    submitLeasingForm: build.mutation<ICalcState, ICalcState>({
+    submitLeasingForm: build.mutation<string, string | ICalcState>({
       query: (params) => ({
-        url: "/",
+        url: "",
         method: "POST",
         body: params,
+        headers: {
+          'content-type': 'application/json',
+        },
       }),
     }),
   }),

@@ -1,0 +1,75 @@
+@import "../variables.scss";
+
+.info-field {
+
+  @include media-mobile {
+    &:first-of-type {
+      margin-bottom: 29px;
+    }
+  }
+
+  @include media-tablet {
+    width: 50%;
+
+    &:first-of-type {
+      margin-bottom: 0px;
+    }
+  }
+
+  @include media-large {
+    width: 33%;
+    margin-right: 32px;
+  }
+
+  &__caption {
+    font-family: "Gilroy", sans-serif;
+    font-weight: 400;
+    
+    @include media-mobile {
+      font-size: 14px;
+      line-height: 19px;
+    }
+    
+    @include media-tablet {
+      color: $grey-color;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  &__value {
+    font-family: "Nekst", sans-serif;
+    color: $black-grey-color;
+    font-size: 54px;
+    line-height: 48px;
+
+    @include media-mobile {
+      padding-top: 2px;
+      font-size: 22px;
+      line-height: 20px;
+    }
+
+    @include media-tablet {
+      // padding: 8px 0px;
+      padding-top: 8px;
+      font-size: 54px;
+      line-height: 48px;
+    }
+
+    @include media-large {
+      color: $grey-color;
+    }
+  }
+}
+
+.ruble-char {
+  vertical-align: text-top;
+
+  @include media-mobile {
+    line-height: 22px;
+  }
+
+  @include media-tablet {
+    line-height: 54px;
+  }
+}

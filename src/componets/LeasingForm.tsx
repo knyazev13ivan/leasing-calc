@@ -9,13 +9,13 @@ import SubmitButton from "./SubmitButton";
 const LeasingForm: React.FC = () => {
   const state = useAppSelector((state) => state.calc);
 
-  const [submitLeasingForm, { isLoading, error }] =
+  const [submitLeasingForm, { isLoading }] =
     useSubmitLeasingFormMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    await submitLeasingForm(state);
+    
+    await submitLeasingForm(JSON.stringify(state));
   };
 
   return (
@@ -29,6 +29,7 @@ const LeasingForm: React.FC = () => {
             caption="Стоимость автомобиля"
             name="carCost"
             value={state.carCost}
+            isDisabled={isLoading}
           >
             ₽
           </InputField>
@@ -37,26 +38,38 @@ const LeasingForm: React.FC = () => {
             caption="Первоначальный взнос"
             name="initialDeposit"
             value={state.initialDeposit}
+            isDisabled={isLoading}
           >
             <PercentDeposit
               name="percentDeposit"
               value={state.percentDeposit}
+              isDisabled={isLoading}
             />
           </InputField>
 
-          <InputField caption="Срок лизинга" name="months" value={state.months}>
+          <InputField
+            caption="Срок лизинга"
+            name="months"
+            value={state.months}
+            isDisabled={isLoading}
+          >
             мес.
           </InputField>
         </div>
 
         <div className="leasing-form__infos">
           <InfoField caption="Сумма договора лизинга" value={state.dealSum} />
-          <InfoField caption="Ежемесячный платеж от" value={state.dealSum} />
+          <InfoField
+            caption="Ежемесячный платеж от"
+            value={state.monthlyPayment}
+          />
+
+          <SubmitButton
+            isDisabled={isLoading}
+            isLoading={isLoading}
+            value="Оставить заявку"
+          />
         </div>
-
-        <SubmitButton isLoading={isLoading} value="Оставить заявку" />
-
-        {error && JSON.stringify(error, null, 2)}
       </form>
     </div>
   );

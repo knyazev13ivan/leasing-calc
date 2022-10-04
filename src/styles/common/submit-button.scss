@@ -1,0 +1,30 @@
+@import "../variables.scss";
+
+.submit-button {
+  position: relative;
+  height: 60px;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: $orange-color;
+  font-family: "Nekst", sans-serif;
+  font-size: 22px;
+  line-height: 20px;
+
+  @include media-mobile {
+    margin-top: 32px;
+    width: 100%;
+  }
+
+  @include media-tablet {
+    margin-top: 44px;
+    width: 345px;
+  }
+
+  @include media-large {
+    margin-top: 0px;
+    width: 33%;
+  }
+}

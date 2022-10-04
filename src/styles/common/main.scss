@@ -1,5 +1,18 @@
 @import "../mixins/media.scss";
+@import "./leasing-form.scss";
+@import "./loader.scss";
+@import "./button-states.scss";
 
 .main {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  
+  @include media-desktop {
+    align-items: center;
+  }
+}
+
+.disabled {
+  opacity: 0.4;
 }

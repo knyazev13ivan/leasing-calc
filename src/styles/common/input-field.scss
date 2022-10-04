@@ -1,0 +1,131 @@
+@import "../variables.scss";
+
+.input-field {
+  width: 100%;
+
+  @include media-mobile {
+    margin: 8px 0px;
+  }
+
+  @include media-tablet {
+    margin: 16px 0px;
+  }
+
+  @include media-large {
+    margin-right: 32px;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
+
+  &__label {
+
+    span {
+      font-family: "Gilroy", sans-serif;
+      font-weight: 400;
+
+      @include media-mobile {
+        font-size: 14px;
+        line-height: 19px;
+      }
+
+      @include media-tablet {
+        color: $grey-color;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .input-field-container {
+    position: relative;
+    width: 100%;
+
+    &__input {
+      display: block;
+      position: relative;
+      padding: 16px 24px;
+      margin-top: 24px;
+      width: 100%;
+      border: none;
+      outline-color: $input-bg-color;
+      outline-width: 2px;
+      border-radius: 16px;
+      margin-bottom: 7px;
+      font-family: "Nekst", sans-serif;
+      background-color: $input-bg-color;
+
+      @include media-mobile {
+        font-size: 22px;
+        line-height: 20px;
+      }
+
+      @include media-tablet {
+        color: $grey-color;
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      &:focus {
+        background-color: $bg-color;
+      }
+
+      &:focus+.input-field-range,
+      &:hover+.input-field-range {
+        height: 1px;
+
+        .input-field-range__line {
+          height: 1px;
+        }
+      }
+    }
+
+    &__extension {
+      display: inline-block;
+      position: absolute;
+      right: 24px;
+      top: 14px;
+      font-family: "Nekst", sans-serif;
+
+      @include media-mobile {
+        font-size: 22px;
+        line-height: 20px;
+      }
+
+      @include media-tablet {
+        color: $grey-color;
+        font-size: 30px;
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+.input-field-range {
+  position: absolute;
+  bottom: 0px;
+  left: 24px;
+  width: calc(100% - 2 * 24px);
+  height: 2px;
+  background-color: $input-active-bg-color;
+
+  &__line {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 2px;
+    background-color: $orange-color;
+  }
+
+  &__circle {
+    position: absolute;
+    bottom: 0px;
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    transform: translate(-10px, 10px);
+    background-color: $orange-color;
+  }
+}

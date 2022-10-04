@@ -2,28 +2,28 @@
 
 @mixin media-mobile {
 
-  @media (max-width: $mediaWidthMobile) {
+  @media (min-width: $mediaWidthMobile) {
     @content;
   }
 }
 
 @mixin media-tablet {
 
-  @media (max-width: $mediaWidthTablet) {
+  @media (min-width: $mediaWidthTablet) {
     @content;
   }
 }
 
 @mixin media-desktop {
 
-  @media (max-width: $mediaWidthDesktop) {
+  @media (min-width: $mediaWidthDesktop) {
     @content;
   }
 }
 
 @mixin media-large {
 
-  @media (max-width: $mediaWidthLarge) {
+  @media (min-width: $mediaWidthLarge) {
     @content;
   }
 }
