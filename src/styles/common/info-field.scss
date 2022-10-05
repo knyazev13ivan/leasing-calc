@@ -16,7 +16,7 @@
     }
   }
 
-  @include media-large {
+  @include media-desktop {
     width: 33%;
     margin-right: 32px;
   }
@@ -24,12 +24,12 @@
   &__caption {
     font-family: "Gilroy", sans-serif;
     font-weight: 400;
-    
+
     @include media-mobile {
       font-size: 14px;
       line-height: 19px;
     }
-    
+
     @include media-tablet {
       color: $grey-color;
       font-size: 16px;
@@ -50,14 +50,9 @@
     }
 
     @include media-tablet {
-      // padding: 8px 0px;
       padding-top: 8px;
       font-size: 54px;
       line-height: 48px;
-    }
-
-    @include media-large {
-      color: $grey-color;
     }
   }
 }

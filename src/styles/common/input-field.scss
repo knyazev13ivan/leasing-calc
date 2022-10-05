@@ -11,7 +11,7 @@
     margin: 16px 0px;
   }
 
-  @include media-large {
+  @include media-desktop {
     margin-right: 32px;
 
     &:last-of-type {
