@@ -109,6 +109,15 @@
   width: calc(100% - 2 * 24px);
   height: 2px;
   background-color: $input-active-bg-color;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    width: 100%;
+    height: 16px;
+  }
 
   &__line {
     position: absolute;
@@ -127,5 +136,7 @@
     border-radius: 10px;
     transform: translate(-10px, 10px);
     background-color: $orange-color;
+    cursor: pointer;
+    // -moz-user-select: -moz-none;
   }
 }

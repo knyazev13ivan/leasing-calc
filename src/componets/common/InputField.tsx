@@ -103,6 +103,36 @@ const InputField: React.FC<IInputField> = ({
     }
   };
 
+  const handleOnClickRange = (event: React.MouseEvent) => {
+    const rect = rangeRef.current?.getBoundingClientRect();
+
+    if (rect) {
+      if (name === "initialDeposit") {
+        const value = Math.floor(
+          ((((event.pageX - rect.x) / rect.width) *
+            (config.percentDeposit.max - config.percentDeposit.min) +
+            config.percentDeposit.min) /
+            100) *
+            carCost
+        );
+        dispatch(change({ name, value }));
+        dispatch(calculate({ name, value }));
+
+        setPosition(event.pageX - rect.x);
+      } else {
+        const value = Math.floor(
+          ((event.pageX - rect.x) / rect.width) *
+            (config[name].max - config[name].min) +
+            config[name].min
+        );
+        dispatch(change({ name, value }));
+        dispatch(calculate({ name, value }));
+
+        setPosition(event.pageX - rect.x);
+      }
+    }
+  };
+
   return (
     <div className={`input-field ${isDisabled ? "disabled" : ""}`}>
       <label className="input-field__label" htmlFor={name}>
@@ -118,7 +148,8 @@ const InputField: React.FC<IInputField> = ({
             " " +
             String(value).slice(-6, -3) +
             " " +
-            String(value).slice(-3)
+            String(value).slice(-3) +
+            (name === 'initialDeposit' ? ' ₽' : '')
           ).trim()}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -126,7 +157,11 @@ const InputField: React.FC<IInputField> = ({
           disabled={isDisabled}
         />
 
-        <div className="input-field-range" ref={rangeRef}>
+        <div
+          className="input-field-range"
+          ref={rangeRef}
+          onClick={handleOnClickRange}
+        >
           <div
             className="input-field-range__line"
             style={{ width: position }}

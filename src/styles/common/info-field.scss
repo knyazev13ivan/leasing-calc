@@ -56,15 +56,3 @@
     }
   }
 }
-
-.ruble-char {
-  vertical-align: text-top;
-
-  @include media-mobile {
-    line-height: 22px;
-  }
-
-  @include media-tablet {
-    line-height: 54px;
-  }
-}

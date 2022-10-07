@@ -1,7 +1,11 @@
-# lising calculator
+# leasing calculator
 
 Использовалось<br />
 TypeScript, React, Redux-Toolkit, SCSS
+
+## Демо
+
+<a href='https://knyazev13ivan.github.io/leasing-calc/'>GitHub Pages</a>
 
 ## Для запуска
 
